@@ -62,7 +62,7 @@ def check_inbox():
         # Look for a comment reply that has the string "+/u/annoysterninator tip doge4water"
         elif((selected_comment is not None) and
             (selected_comment.id not in already_done) and              # make sure the comment is not in the already_done list
-            (message.body == '+/u/annoysterninator tip doge4water') and # and make sure it has the correct body
+            ('+/u/annoysterninator tip doge4water' in message.body) and # and make sure it has the correct body
             (message.author.name == comment_author)):                        # and make sure the author is the same user that won the most recent lottery
             message.reply('Thank you for donating your tip to doge4water!\n\n +/u/dogetipbot DNfFHTUZ4kkXPnoYUvgt6BGVwonEFB1b2i ' + str(doge_amount) + ' doge verify')
             # add to the already_done list and indicate that the tip was donated

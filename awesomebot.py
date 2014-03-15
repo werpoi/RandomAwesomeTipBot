@@ -38,7 +38,7 @@ def pick_random_comment():
     for comment in subreddit_comments:
         op_text = comment.body
         has_praw = any(string in op_text for string in prawWords)
-        if comment.id not in already_done and has_praw:
+        if((comment.id not in already_done) and (has_praw) and (comment.author.name != "annoysterninator")):
             comment.reply('This is a tip for an awesome user on an awesome subreddit!\n\n  This bot was created by /u/bassguitarman!\n\n If you would like the tip of ' + str(doge_amount) + ' doge to go to doge4water, please respond to this comment with "+/u/annoysterninator tip doge4water". Otherwise this bot will tip you ' + str(doge_amount) + ' doge in six minutes.\n\nPlease consider tipping this bot to keep it running!\n\n')
             print (time.strftime("%X") + ': Lottery has been won!')
             return comment
